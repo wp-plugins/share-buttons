@@ -1,5 +1,6 @@
 === Share Buttons for WordPress ===
 Contributors: Loskutnikov Artem (artlosk)
+Donate link: http://artlosk.com/donate/
 Tags: social, network, jquery, share buttons, social buttons, twitter, facebook, vkontakte, odnoklassniki, mail.ru
 Requires at least: 2.8
 Tested up to: 3.0
