@@ -26,8 +26,8 @@
         $button_code .= '<div class="mailru-myicon">';
         $button_code .= "<a href=\"#mailru\" name=\"mailru\" onclick=\"new_window('http://connect.mail.ru/share?share_url=$url');\">";
         $button_code .= '<img src="'.$this->plugin_url.'images/social/20px/mailru.png" /></a></div>';
-        $button_code .= "\r\n";                
-                        
+        $button_code .= "\r\n";
+                       
     }        
 
 ?>

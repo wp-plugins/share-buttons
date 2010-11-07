@@ -4,7 +4,7 @@ Plugin Name: Share Buttons
 Plugin URI: http://artlosk.com/2010/10/social-share-buttons/
 Description: The plugin implements the API function socials networks that adds the link share buttons.
 Author: Loskutnikov Artem
-Version: 1.1
+Version: 1.2
 Author URI: http://artlosk.com/
 License: GPL2
 */
@@ -35,12 +35,6 @@ class ShareButtons extends ButtonsScripts {
 	var $exclude; // IDs of excluding pages and posts
 	var $show_on_post;
 	var $show_on_page;
-	var $show_on_home; // bool for display buttons on front page
-	var $show_on_cats; // show button on category archives
-	var $show_on_tags; // show butoon on tag listing
-	var $show_on_date; // show button on date-based archives
-	var $show_on_auth; // show button on author archives
-	var $show_on_srch; // show button on search results pages
     
     var $logo_share;
     
@@ -110,12 +104,6 @@ class ShareButtons extends ButtonsScripts {
 		
 		$this->show_on_post = get_option('share_buttons_show_on_posts');
 		$this->show_on_page = get_option('share_buttons_show_on_pages');
-		$this->show_on_home = get_option('share_buttons_show_on_home');
-		$this->show_on_cats = get_option('share_buttons_show_on_cats');
-		$this->show_on_tags = get_option('share_buttons_show_on_tags');
-		$this->show_on_date = get_option('share_buttons_show_on_date');
-		$this->show_on_auth = get_option('share_buttons_show_on_auth');
-		$this->show_on_srch = get_option('share_buttons_show_on_srch');
         
         $this->vkontakte_show = get_option('vkontakte_button_show');
         $this->vkontakte_button_type = get_option('vkontakte_button_type');
@@ -155,20 +143,14 @@ class ShareButtons extends ButtonsScripts {
 	function install() {
 		//create options
 
-	add_option('share_buttons_position', 'left');
-	add_option('share_buttons_vposition', 'bottom');
+        add_option('share_buttons_position', 'left');
+        add_option('share_buttons_vposition', 'bottom');
 		
-	add_option('share_buttons_show_on_posts', TRUE);
-	add_option('share_buttons_show_on_pages', FALSE);
-	add_option('share_buttons_show_on_home', FALSE);
-	add_option('share_buttons_show_on_cats', FALSE);
-	add_option('share_buttons_show_on_tags', FALSE);
-	add_option('share_buttons_show_on_date', FALSE);
-	add_option('share_buttons_show_on_auth', FALSE);
-	add_option('share_buttons_show_on_srch', FALSE);
+        add_option('share_buttons_show_on_posts', TRUE);
+        add_option('share_buttons_show_on_pages', TRUE);
 	
-	add_option('share_buttons_noparse', 'true');
-	add_option('share_buttons_exclude', '');
+        add_option('share_buttons_noparse', 'true');
+        add_option('share_buttons_exclude', '');
         
         add_option('vkontakte_button_show', TRUE);
         add_option('vkontakte_button_type', 'button');
@@ -211,12 +193,6 @@ class ShareButtons extends ButtonsScripts {
 		
 		register_setting( 'sb-settings-group', 'share_buttons_show_on_posts' );
 		register_setting( 'sb-settings-group', 'share_buttons_show_on_pages' );
-		register_setting( 'sb-settings-group', 'share_buttons_show_on_home' );
-		register_setting( 'sb-settings-group', 'share_buttons_show_on_cats' );
-		register_setting( 'sb-settings-group', 'share_buttons_show_on_tags' );
-		register_setting( 'sb-settings-group', 'share_buttons_show_on_date' );
-		register_setting( 'sb-settings-group', 'share_buttons_show_on_auth' );
-		register_setting( 'sb-settings-group', 'share_buttons_show_on_srch' );
 		
 		register_setting( 'sb-settings-group', 'share_buttons_exclude' );
         
@@ -293,14 +269,8 @@ class ShareButtons extends ButtonsScripts {
             $the_button = "<div name=\"#\" style=\"float: $pos; margin: 0px 0px 0px 0px;\">\r\n$clear_button\r\n</div><div style=\"clear:both;\"></div>";
             $the_button .= "<div name=\"#\" style=\"float: $pos; margin: 0px 0px 0px 0px;\">\r\n$like_button\r\n</div><div style=\"clear:both;\"></div>";            
  
-		if (is_single()   && $this->show_on_post || 
-			is_page() 	  && $this->show_on_page || 
-			is_home() 	  && $this->show_on_home ||
-			is_category() && $this->show_on_cats ||
-			is_tag() 	  && $this->show_on_tags ||
-			is_date()     && $this->show_on_date ||
-			is_author()   && $this->show_on_auth ||
-			is_search()   && $this->show_on_srch) {
+		if (is_single() && $this->show_on_post || is_page() && $this->show_on_page) { 
+
 			if ($vpos == 'top')
 				// place button before post
 				return $the_button . $content;

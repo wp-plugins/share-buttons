@@ -2,7 +2,7 @@
 
     global $post;
     
-    $title = get_the_title($post->ID);
+    $title = $post->post_title;
 
     $type=get_option('twitter_button_type');
     $via = get_option('twitter_via');

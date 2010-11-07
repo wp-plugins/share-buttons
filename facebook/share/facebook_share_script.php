@@ -14,7 +14,6 @@
         $button_code .= '<div class="fb-share-button"><a name="fb_share" type="'.$type.'" share_url="'.$url.'">'.__('Share',$this->plugin_domain).'</a></div>';
         $button_code .= "\r\n";                  
     } else if($type=='icon') {
-        //$button_code .= '<div class="fb-share-icon"><a name="fb_share" type="'.$type.'" share_url="'.$url.'"></a></div>';
         $button_code .= '<div class="fb-myicon">';
         $button_code .= "\r\n";        
         $button_code .= "<a href=\"#facebook\" name=\"facebook\" onclick=\"new_window('http://www.facebook.com/sharer.php?u=$url');\">";

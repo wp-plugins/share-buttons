@@ -1,3 +1,9 @@
+.wrap {
+    width: 100%;
+    float: left;
+    margin-right: -160px;
+    background:#fff;
+}
 .fieldset_image {
     margin-left:10px;
     border:1px solid #eee;
@@ -25,7 +31,7 @@ legend {
     width:680px;
     margin: 10px;
     padding:10px;
-    border:1px solid #ccc;
+    border:1px solid #eee;
     font-weight:bold;
     background:#eee;
 }
@@ -58,4 +64,13 @@ legend {
     float: left;
     margin-left:5px;
     margin-top:5px;    
+}
+.head_social {
+    margin-left:10px;
+    font-weight:bold;
+}
+.body_social {
+    margin-left:20px;
+    width:600px;
+    padding:10px;
 }

@@ -4,7 +4,7 @@ Donate link: http://artlosk.com/donate/
 Tags: social, network, jquery, share buttons, social buttons, twitter, facebook, vkontakte, odnoklassniki, mail.ru
 Requires at least: 2.8
 Tested up to: 3.0
-Stable tag: 1.1
+Stable tag: 1.2
 
 The Share buttons, it is plugin for social networks. The plugin supports 5 social networking.
 
@@ -40,6 +40,10 @@ This plugin is written using AJAX and Jquery. The plugin supports 2 languages: E
 
 
 == Changelog ==
+
+= 1.2 =
+ - Previously, the plugin inscribe title and description, which was introduced Platinum SEO Pack plugin and like it. Now the plugin takes from post and cuts 300 characters to description. <meta name="description" content="$description" />
+ - Optimized scripts social networking.
 
 = 1.1 =
 Fixed upload logo

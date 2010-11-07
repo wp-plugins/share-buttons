@@ -12,8 +12,9 @@
         
         $type = get_option('vkontakte_button_type');
         
-        $title = get_the_title($post->ID);
-        $descr = substr(get_the_content($post->ID),500);
+
+        $descr = $this->descr_excerpt("text=$post->post_content&maxchar=300");
+        $title = $post->post_title;
             
         if($type=='myicon' || $type=='custom') {
             $button_code .= "<div class=\"vk-myicon\">\r\n";            
@@ -23,7 +24,9 @@
         
         $button_code .="<script type=\"text/javascript\">\r\n<!--\r\ndocument.write(VK.Share.button(\r\n{\r\n";
 		$button_code .= "  url: '$link',\r\n";
-		$button_code .= "  title: '$title'"; 
+		$button_code .= "  title: '$title',\r\n";
+		$button_code .= "  description: '$descr'";
+
 
         if($thumb!='') {
             $button_code .= ",\r\n image: '$thumb'";
@@ -50,6 +53,6 @@
         }
         $button_code .= "  type: '$type',\r\n";      
         $button_code .= "  text: '$text'\r\n}));";
-		$button_code .= "\r\n-->\r\n</script></div>\r\n";
+        $button_code .= "\r\n-->\r\n</script></div>\r\n";
 
 ?>

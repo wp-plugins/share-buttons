@@ -150,8 +150,8 @@ jQuery(document).ready(function($){
 
  });
 </script>
-<div class="wrap">
-    <div style="width: 100%; float: left; margin-right: -160px; background:#fff;">
+<div>
+    <div class="wrap">
         <div style="margin-right: 160px;">
             <h2><?php _e('Share Buttons Settings', $this->plugin_domain) ?></h2>
             <div id="container">
@@ -227,11 +227,6 @@ jQuery(document).ready(function($){
                     <tr valign="top">
                     <th scope="row"><?php _e('The Button displays on', $this->plugin_domain) ?></th>
                         <td>
-                            <label for="share_buttons_show_on_home">
-                                <input name="share_buttons_show_on_home" type="checkbox" id="share_buttons_show_on_home" value="1" <?php checked(TRUE, $this->show_on_home); ?> />
-                                <?php _e('Frontpage', $this->plugin_domain) ?>
-                            </label>
-                            <br />
                             <label for="share_buttons_show_on_posts">
                                 <input name="share_buttons_show_on_posts" type="checkbox" id="share_buttons_show_on_posts" value="1" <?php checked(TRUE, $this->show_on_post); ?> />
                                 <?php _e('Posts', $this->plugin_domain) ?>
@@ -240,31 +235,6 @@ jQuery(document).ready(function($){
                             <label for="share_buttons_show_on_pages">
                                 <input name="share_buttons_show_on_pages" type="checkbox" id="share_buttons_show_on_pages" value="1" <?php checked(TRUE, $this->show_on_page); ?> />
                                 <?php _e('Pages', $this->plugin_domain) ?>
-                            </label>
-                            <br />
-                            <label for="share_buttons_show_on_cats">
-                                <input name="share_buttons_show_on_cats" type="checkbox" id="share_buttons_show_on_cats" value="1" <?php checked(TRUE, $this->show_on_cats); ?> />
-                                <?php _e('Category archives', $this->plugin_domain) ?>
-                            </label>
-                            <br />
-                            <label for="share_buttons_show_on_tags">
-                                <input name="share_buttons_show_on_tags" type="checkbox" id="share_buttons_show_on_tags" value="1" <?php checked(TRUE, $this->show_on_tags); ?> />
-                                <?php _e('Tag listing', $this->plugin_domain) ?>
-                            </label>
-                            <br />
-                            <label for="share_buttons_show_on_date">
-                                <input name="share_buttons_show_on_date" type="checkbox" id="share_buttons_show_on_date" value="1" <?php checked(TRUE, $this->show_on_date); ?> />
-                                <?php _e('Date-based archives', $this->plugin_domain) ?>
-                            </label>
-                            <br />
-                            <label for="share_buttons_show_on_auth">
-                                <input name="share_buttons_show_on_auth" type="checkbox" id="share_buttons_show_on_auth" value="1" <?php checked(TRUE, $this->show_on_auth); ?> />
-                                <?php _e('Author archives', $this->plugin_domain) ?>
-                            </label>
-                            <br />
-                            <label for="share_buttons_show_on_srch">
-                                <input name="share_buttons_show_on_srch" type="checkbox" id="share_buttons_show_on_srch" value="1" <?php checked(TRUE, $this->show_on_srch); ?> />
-                                <?php _e('Search results', $this->plugin_domain) ?>
                             </label>
                             <br />
                         </td>
@@ -284,12 +254,12 @@ jQuery(document).ready(function($){
             <fieldset class="fieldset_social">
                 <legend><?php _e('Vkontakte.ru Share Button', $this->plugin_domain) ?></legend>
 <!-- Vkontakte.ru Like Button -->
-                <div style="margin-left:10px;font-weight:bold;">
+                <div class="head_social">
                     <input name="vkontakte_like_button_show" type="checkbox" id="vkontakte_like_show" value="1" <?php checked(TRUE, $this->vkontakte_like_show); ?> />
                     <?php _e('Show Vkontakte.ru Like Button', $this->plugin_domain) ?>
                 </div>
 
-                <div style="margin-left:20px;width:500px;padding:10px;" id="vkontakte_like_sample_buttons">
+                <div class="body_social" id="vkontakte_like_sample_buttons">
 
                     <div>
                         <img name="vk_pic_like" id="vk_pic_like" src="<?php echo $this->plugin_url;?>/vkontakte/like/sample_images/full-like.png" />
@@ -334,12 +304,12 @@ jQuery(document).ready(function($){
                 <br />
 
 <!-- Vkontakte.ru Share Button -->
-                <div style="margin-left:10px;font-weight:bold">
+                <div class="head_social">
                     <input name="vkontakte_button_show" type="checkbox" id="vkontakte_show" value="1" <?php checked(TRUE, $this->vkontakte_show); ?> />
                     <?php _e('Show Vkontakte.ru Share Button', $this->plugin_domain) ?>
                 </div>
 
-                <div style="margin-left:20px;width:500px;padding:10px;" id="vkontakte_sample_buttons">
+                <div class="body_social" id="vkontakte_sample_buttons">
                     <div>
                         <div style="margin-bottom:5px;"><?php _e("Modern Icon:", $this->plugin_domain ); ?></div>
                         <div style="float: left; width:25px;margin-top:8px;"><input type="radio" name="vkontakte_button_type" value="myicon" <?php echo (get_option('vkontakte_button_type') == 'myicon' ? 'checked' : ''); ?> /></div>
@@ -384,11 +354,11 @@ jQuery(document).ready(function($){
 <!-- Odnoklassniki.ru Share Buttons -->
             <fieldset class="fieldset_social">
                 <legend><?php _e('Odnoklassniki Share Button', $this->plugin_domain) ?></legend>
-                <div style="margin-left:10px;font-weight:bold;">
+                <div class="head_social">
                     <input name="odnoklassniki_button_show" type="checkbox" id="odnoklassniki_show" value="1" <?php checked(TRUE, $this->odnoklassniki_show); ?> />
                     <?php _e('Show Odnoklassniki.ru Share Button', $this->plugin_domain) ?>
                 </div>
-                <div style="margin-left:20px;width:500px;padding:10px;" id="odnoklassniki_sample_buttons">
+                <div class="body_social" id="odnoklassniki_sample_buttons">
                     <div>
                         <div style="margin-bottom:5px;"><?php _e("Modern Icon:", $this->plugin_domain ); ?></div>
                         <div style="float: left; width:25px; margin-top:8px;"><input type="radio" name="odnoklassniki_button_type" value="myicon" <?php echo (get_option('odnoklassniki_button_type') == 'myicon' ? 'checked' : ''); ?> /></div>
@@ -421,12 +391,12 @@ jQuery(document).ready(function($){
 <!-- Mail.ru Share Buttons -->
             <fieldset class="fieldset_social">
                 <legend><?php _e('Mail.ru Share Button', $this->plugin_domain) ?></legend>
-                <div style="margin-left:10px;font-weight:bold;">
+                <div class="head_social">
                     <input name="mailru_button_show" type="checkbox" id="mailru_show" value="1" <?php checked(TRUE, $this->mailru_show); ?> />
 	               <?php _e('Show Mail.ru Share Button', $this->plugin_domain) ?>
                 </div>
 
-                <div style="margin-left:20px;width:500px;padding:10px;" id="mailru_sample_buttons">
+                <div class="body_social" id="mailru_sample_buttons">
                     <div>
                         <div style="margin-bottom:5px;"><?php _e("Modern Icon:", $this->plugin_domain ); ?></div>
                         <div style="float: left; width:25px;margin-top:8px;"><input type="radio" name="mailru_button_type" value="myicon" <?php echo (get_option('mailru_button_type') == 'myicon' ? 'checked' : ''); ?> /></div>
@@ -460,13 +430,13 @@ jQuery(document).ready(function($){
 
             <fieldset class="fieldset_social">
                 <legend><?php _e('Facebook Share Button', $this->plugin_domain) ?></legend>
-                <div style="margin-left:10px;font-weight:bold;">
+                <div class="head_social">
                     <input name="facebook_like_button_show" type="checkbox" id="facebook_like_show" value="1" <?php checked(TRUE, $this->facebook_like_show); ?> />
                     <?php _e('Show Facebook Like Button', $this->plugin_domain) ?>
                 </div>
                 <br />
 <!-- Facebook.com Like Button -->
-                <div style="margin-left:20px;width:600px;padding:10px;" id="facebook_like_button">
+                <div class="body_social" id="facebook_like_button">
                     <div>
                         <img name="pic" id="pic" src="<?php echo $this->plugin_url;?>/facebook/like/sample_images/standart-like-light.png" />
                     </div>
@@ -520,11 +490,11 @@ jQuery(document).ready(function($){
                 </div>
 
 <!-- Facebook.com Share Button -->
-                    <div style="margin-left:10px;font-weight:bold;">
+                    <div class="head_social">
                         <input name="facebook_share_button_show" type="checkbox" id="facebook_share_show" value="1" <?php checked(TRUE, $this->facebook_share_show); ?> />
                         <?php _e('Show Facebook Share Button', $this->plugin_domain) ?>
                     </div>
-                    <div style="margin-left:20px;width:600px;padding:10px;" id="facebook_share_button">
+                    <div class="body_social" id="facebook_share_button">
                         <div>
                             <div style="margin-bottom:5px;"><?php _e("Modern Icon:", $this->plugin_domain ); ?></div>
                             <div style="float: left; width:25px;margin-top:8px;"><input type="radio" name="facebook_share_button_type" value="myicon" <?php echo (get_option('facebook_share_button_type') == 'myicon' ? 'checked' : ''); ?> /></div>
@@ -552,11 +522,11 @@ jQuery(document).ready(function($){
 <!-- Twitter Button Share -->
             <fieldset class="fieldset_social">
                 <legend><?php _e('Twitter Share Button', $this->plugin_domain) ?></legend>
-                <div style="margin-left:10px;font-weight:bold;">
+                <div class="head_social">
                     <input name="twitter_button_show" type="checkbox" id="twitter_show" value="1" <?php checked(TRUE, $this->twitter_show); ?> />
 	               <?php _e('Show Twitter Share Button', $this->plugin_domain) ?>
                 </div>
-                <div style="margin-left:20px;width:500px;padding:10px;" id="twitter_sample_buttons">
+                <div class="body_social" id="twitter_sample_buttons">
                     <div>
                         <div><?php _e('Twitter via', $this->plugin_domain); ?>&nbsp;<span class="description">(<?php _e('Your Nickname without "@"', $this->plugin_domain);?>)</span></div>
                         <div><input type="text" name="twitter_via" value="<?php echo esc_attr($this->twitter_via);?>" class="regular-text" /></div>
