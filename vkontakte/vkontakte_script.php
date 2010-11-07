@@ -13,8 +13,17 @@
         $type = get_option('vkontakte_button_type');
         
 
-        $descr = $this->descr_excerpt("text=$post->post_content&maxchar=300");
-        $title = $post->post_title;
+       	$temp = substr(strip_shortcodes(strip_tags($post->post_content)), 0, 350);
+	// Sometimes substr() returns substring with strange symbol in the end which crashes esc_js()
+	while (esc_js($temp) == '' && $temp != '')
+		$temp = substr($temp, 0, strlen($temp)-1);
+	$descr = esc_js($temp);
+				
+	if (strlen($post->post_content) > 350 && $descr != '')
+		$descr .= '...';
+
+        $title = esc_js($post->post_title);
+
             
         if($type=='myicon' || $type=='custom') {
             $button_code .= "<div class=\"vk-myicon\">\r\n";            

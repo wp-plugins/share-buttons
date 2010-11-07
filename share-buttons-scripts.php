@@ -2,50 +2,6 @@
 
 class ButtonsScripts {
 
-//Help method for Description
-
-    function descr_excerpt($args=''){  
-        global $post;  
-        parse_str($args, $i);  
-        $maxchar     = isset($i['maxchar']) ?  (int)trim($i['maxchar'])     : 350;  
-        $text        = isset($i['text']) ?          trim($i['text'])        : '';  
-        $save_format = isset($i['save_format']) ?   false                   : true;  
-       	$echo        = isset($i['echo']) ?          true                   : false;  
-  
-		if (!$text) {  
-            $out = $post->post_excerpt ? $post->post_excerpt : $post->post_content;  
-            $out = preg_replace ("!\[/?.*\]!U", '', $out );  
-  
-            if( !$post->post_excerpt && strpos($post->post_content, '<!--more-->') ) {  
-                preg_match ('/(.*)<!--more-->/s', $out, $match);  
-                $out = str_replace("\r", '', trim($match[1]));  
-                $out = preg_replace( "!\n\n+!s", "</p><p>", $out );  
-                $out = str_replace ( "\n", "<br />", $out );
-                if ($echo)  
-                    return print $out;  
-                return $out;  
-            }  
-        }  
-  
-        $out = $text.$out;  
-    
-        if (!$post->post_excerpt) $out = strip_tags($out);  
-  
-        if ( iconv_strlen($out,'utf-8') > $maxchar ) {  
-            $out = iconv_substr( $out, 0, $maxchar, 'utf-8' );  
-            $words = split(' ', $out ); $maxwords = count($words) - 1;  
-            $out = join( ' ', array_slice($words, 0, $maxwords) ).' ...';  
-        }  
-
-        if($save_format) {  
-            $out = str_replace( "\r", '', trim($out) );  
-            $out = preg_replace( "!\n\n+!s", "</p><p>", $out );  
-            $out = str_replace ( "\n", "<br />", $out );
-        }  
-  
-        if ($echo) return print $out;  
-            return $out;  
-    }  
 
 //Loading JS and CSS files all social share buttons
     function add_head()	{
@@ -53,6 +9,7 @@ class ButtonsScripts {
             echo '<link rel="stylesheet" href="'.$this->plugin_url.'share-buttons-user.css" type="text/css" />';
             echo "\r\n";               
             global $post;
+//print_r($post);
             $thumb = get_post_meta($post->ID, 'Thumbnail', $single = true);
             $your_logo = $this->plugin_url.'upload/uploads/logo.png';
             $absolute_path_logo = dirname(__FILE__).'/upload/uploads/logo.png';
@@ -65,8 +22,16 @@ class ButtonsScripts {
             }
 
             if (is_single() && $this->show_on_post || is_page() && $this->show_on_page) { 
-                $descr = $this->descr_excerpt("text=$post->post_content&maxchar=300");
-                $title = $post->post_title;
+            	$temp = substr(strip_shortcodes(strip_tags($post->post_content)), 0, 350);
+		// Sometimes substr() returns substring with strange symbol in the end which crashes esc_js()
+		while (esc_js($temp) == '' && $temp != '')
+			$temp = substr($temp, 0, strlen($temp)-1);
+		$descr = esc_js($temp);
+				
+		if (strlen($post->post_content) > 350 && $descr != '')
+			$descr .= '...';
+
+		$title = esc_js($post->post_title);
             }
 
             echo '<meta name="description" content="'.$descr.'" />';

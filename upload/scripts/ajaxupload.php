@@ -154,10 +154,11 @@
 	if($filesize_image > 0){
 		$upload_image = uploadImage($filename, $maxSize, $maxW, $fullPath, $relPath, $colorR, $colorG, $colorB, $maxH);
         if(file_exists(realpath('../uploads/logo.png'))) {
-//		  @chmod(realpath('../uploads/logo.png'),0777);          
 		@unlink(realpath('../uploads/logo.png'));
         }
-            @copy($upload_image,'../uploads/logo.png');
+
+        @copy($upload_image,'../uploads/logo.png');
+
         if(file_exists(realpath('../uploads/logo.png'))) {
             @chmod(realpath('../uploads/logo.png'),0777);
         }            
@@ -197,7 +198,7 @@
 	while($fname = readdir($dh)){
 		if( $fname != "." && $fname != ".." && $fname!="logo.png" && $fname!=$source_image ) {
 			$files[] = $fname;
-			unlink($dir.$fname);
+			@unlink($dir.$fname);
 		}
 
 	}
