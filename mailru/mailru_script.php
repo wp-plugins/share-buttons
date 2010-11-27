@@ -2,7 +2,7 @@
     
     
     $type = get_option('mailru_button_type');
-        
+    $url = get_permalink($post->ID);        
     if ($type=='myicon') {
             
         $button_code .= '<div class="mailru-myicon">';

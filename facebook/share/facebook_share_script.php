@@ -2,7 +2,7 @@
 
     global $post;
 
-    $url = get_permalink($post->ID); 
+    $url = get_permalink($post->ID);
     $type = get_option('facebook_share_button_type');
 
     if ($type=='myicon') {

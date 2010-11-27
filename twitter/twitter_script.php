@@ -3,7 +3,7 @@
     global $post;
     
     $title = $post->post_title;
-
+    $url = get_permalink($post->ID);
     $type=get_option('twitter_button_type');
     $via = get_option('twitter_via');
     

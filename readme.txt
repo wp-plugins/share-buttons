@@ -4,7 +4,7 @@ Donate link: http://artlosk.com/donate/
 Tags: social, network, jquery, share buttons, social buttons, twitter, facebook, vkontakte, odnoklassniki, mail.ru
 Requires at least: 2.8
 Tested up to: 3.0
-Stable tag: 1.2.1
+Stable tag: 1.2.2
 
 The Share buttons, it is plugin for social networks. The plugin supports 5 social networking.
 
@@ -41,6 +41,11 @@ or upload via FTP manually (this script while in the process)
 
 
 == Changelog ==
+
+= 1.2.2 =
+
+Fixed get url for twitter, mailru buttons.
+"$url = get_permalink($post->ID);"
 
 = 1.2.1 =
 Fixed output <meta>. Output without html.
