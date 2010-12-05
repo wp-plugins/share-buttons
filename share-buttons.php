@@ -1,7 +1,7 @@
 <?php
 /*
 	Plugin Name: Share Buttons
-	Plugin URI: http://artlosk.com/2010/10/social-share-buttons/
+	Plugin URI: http://artlosk.com/2010/12/social-share-buttons-ver-2-0/
 	Description: The plugin implements the API function socials networks that adds the link share buttons.
 	Author: Loskutnikov Artem
 	Version: 2.0
