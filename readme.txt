@@ -1,4 +1,4 @@
-=== Share Buttons for WordPress ===
+=== Social Share Buttons for WordPress ===
 Contributors: Loskutnikov Artem (artlosk)
 Donate link: http://artlosk.com/donate/
 Tags: social, network, jquery, share buttons, social buttons, twitter, facebook, vkontakte, odnoklassniki, mail.ru
@@ -16,12 +16,6 @@ Settings include show/hide buttons, sort buttons, position buttons and e.t.c.
 This plugin is written using AJAX and Jquery. The plugin supports 2 languages: English and Russian
 
 [FAQ](http://artlosk.com/2010/12/social-share-buttons-ver-2-0/), but on russian language
-
-== History URL ==
-
-Third post about plugin ver 2.0   : http://artlosk.com/2010/12/social-share-buttons-ver-2-0/
-Second post about plugin ver. 1.2 : http://artlosk.com/2010/11/social-share-buttons-ver-1-2/
-First post about plugin ver. 1.0  : http://artlosk.com/2010/10/social-share-buttons/
 
 == Languages ==
 
@@ -48,6 +42,11 @@ or upload via FTP manually
 8. Screenshot 8: Like Buttons (Facebook)
 9. Screenshot 9: Like Buttons (Mail.ru)
 
+== History URL ==
+
+Third post about plugin ver 2.0   : http://artlosk.com/2010/12/social-share-buttons-ver-2-0/
+Second post about plugin ver. 1.2 : http://artlosk.com/2010/11/social-share-buttons-ver-1-2/
+First post about plugin ver. 1.0  : http://artlosk.com/2010/10/social-share-buttons/
 
 == Changelog ==
 
