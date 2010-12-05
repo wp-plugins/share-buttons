@@ -45,7 +45,9 @@ or upload via FTP manually
 == History URL ==
 
 Third post about plugin ver 2.0   : http://artlosk.com/2010/12/social-share-buttons-ver-2-0/
+
 Second post about plugin ver. 1.2 : http://artlosk.com/2010/11/social-share-buttons-ver-1-2/
+
 First post about plugin ver. 1.0  : http://artlosk.com/2010/10/social-share-buttons/
 
 == Changelog ==
