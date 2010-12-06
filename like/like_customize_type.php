@@ -21,7 +21,7 @@
 		$vkontakte_like .= "VK.init({apiId: $api_id_vk, onlyWidgets: true});";
 		$vkontakte_like .= "\r\n";    
 
-		$vkontakte_like .= "VK.Widgets.Like('vk_like_".$post->ID."', {type: '$type_vk', pageUrl:'$url', verb: '$verb_vk'}, ".$post->ID.");";
+		$vkontakte_like .= "VK.Widgets.Like('vk_like_".$post->ID."', {type: '$type_vk', pageTitle: '$title', pageUrl:'$url', verb: '$verb_vk'}, ".$post->ID.");";
 		$vkontakte_like .= "\r\n";
 /*		$vkontakte_like .= '}';
 		$vkontakte_like .= "\r\n";*/
