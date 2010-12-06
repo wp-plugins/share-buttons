@@ -53,10 +53,12 @@ First post about plugin ver. 1.0  : http://artlosk.com/2010/10/social-share-butt
 == Changelog ==
 
 [2.2]
+
 Fixed output "Like button for Vkontakte" when displayed in loop of posts. 
-Now the button's container with a unique ID, for example <div id="vk_like_$post->ID"></div>
+Now the button's container with a unique ID, for example &lt;div&gt; id='vk_like_$post->ID'>&lt;/div&gt;
 
 [2.1]
+
 Fixed URL for page
 
 [2.0]
