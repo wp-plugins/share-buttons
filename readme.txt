@@ -1,6 +1,6 @@
 === Social Share Buttons for WordPress ===
 Contributors: Loskutnikov Artem (artlosk)
-Donate link: http://sbuttons.ru/donate-ru/ and http://sbuttons.ru/donate-en/
+Donate link:  http://sbuttons.ru/donate-en/
 Tags: social, network, jquery, share buttons, social buttons, twitter, facebook, vkontakte, odnoklassniki, mail.ru, google, google-buzz, livejournal
 Requires at least: 2.8
 Tested up to: 3.0
@@ -51,6 +51,7 @@ Create Site for this plugin http://sbuttons.ru
 Update russian language
 Add text before social buttons
 Change Sort
+Fixed button Odnoklassniki
 and e.t.c (few changes)
 
 [2.2]
