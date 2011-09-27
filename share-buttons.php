@@ -5,7 +5,7 @@
 	Description: The plugin implements the API function socials networks that adds the link share buttons.
 	Donate link: http://sbuttons.ru/donate-ru/ and http://sbuttons.ru/donate-en/
 	Author: Loskutnikov Artem
-	Version: 2.6
+	Version: 2.5
 	Author URI: http://artlosk.com/
 	License: GPL2
 */
@@ -38,11 +38,6 @@
 		var $show_on_post;
 		var $show_on_page;
 		var $show_on_home;
-		var $show_on_cat;
-		var $show_on_archive;
-		var $show_on_tag;
-		var $margin_top;
-		var $margin_bottom;
 
 		var $logo_share;
 
@@ -68,8 +63,14 @@
 		var $facebook_like_verb;
 
 
+		var $vkontakte_button_show;
+		var $mailru_button_show;
+		var $facebook_button_show;
+		var $odnoklassniki_button_show;
+		var $twitter_button_show;
+		var $livejournal_button_show;
+		var $google_button_show;
 		var $buttons_show;
-		var $buttons_sort;
 
 		var $twitter_via;
 		var $parsing_images;
@@ -113,12 +114,6 @@
 		$this->show_on_post = get_option('share_buttons_show_on_posts');
 		$this->show_on_page = get_option('share_buttons_show_on_pages');
 		$this->show_on_home = get_option('share_buttons_show_on_home');
-		$this->show_on_archive = get_option('share_buttons_show_on_archive');
-		$this->show_on_cat = get_option('share_buttons_show_on_cat');
-		$this->show_on_tag = get_option('share_buttons_show_on_tag');
-		$this->margin_top = get_option('margin_top');
-		$this->margin_bottom = get_option('margin_bottom');
-
 
 		$this->customize_type = get_option('opt_customize_type');
 
@@ -143,13 +138,20 @@
 		$this->mailru_like_verb = get_option('mailru_like_verb');
 		$this->mailru_like_show = get_option('mailru_like_button_show');
 
-		$this->buttons_show = get_option('buttons_show');
-		$this->buttons_sort = get_option('buttons_sort');
+		$this->vkontakte_button_show = get_option('vkontakte_button_show');
+		$this->mailru_button_show = get_option('mailru_button_show');
+		$this->facebook_button_show = get_option('facebook_button_show');
+		$this->odnoklassniki_button_show = get_option('odnoklassniki_button_show');
+		$this->twitter_button_show = get_option('twitter_button_show');
+		$this->livejournal_button_show = get_option('livejournal_button_show');
+		$this->google_button_show = get_option('google_button_show');
+
 		$this->twitter_via = get_option('twitter_via');
 		$this->parsing_images = get_option('opt_parsing_images');
 
 		$this->logo_share = get_option('logo_share');
 
+		$this->buttons_show = array(get_option('vkontakte_button_show'), get_option('mailru_button_show'), get_option('facebook_button_show'), get_option('odnoklassniki_button_show'), get_option('twitter_button_show'), get_option('livejournal_button_show'), get_option('google_button_show'));
 		$this->header_text = get_option('header_text');
 
 	}
@@ -163,17 +165,15 @@
 		add_option('share_buttons_show_on_posts', TRUE);
 		add_option('share_buttons_show_on_pages', TRUE);
 		add_option('share_buttons_show_on_home', TRUE);
-		add_option('share_buttons_show_on_archive', TRUE);
-		add_option('share_buttons_show_on_cat', TRUE);
-		add_option('share_buttons_show_on_tag', TRUE);
-
-		add_option('margin_top', '0');
-		add_option('margin_bottom', '5');
 
 		add_option('share_buttons_noparse', 'true');
 		add_option('share_buttons_exclude', '');
 
-		add_option('opt_customize_type','classic');
+		if(date(m)==12) { add_option('opt_customize_type','new_year'); }  else { add_option('opt_customize_type','classic'); }
+
+		for($i=0;$i<5;$i++) {
+			add_option($this->social_name[$i],$i+1);
+		}
 
 		add_option('vkontakte_like_api','');
 		add_option('vkontakte_like_button_show', FALSE);
@@ -186,18 +186,29 @@
 		add_option('mailru_like_verb', 'Нравится');
 		add_option('mailru_like_button_show', FALSE);
 
-		add_option('facebook_like_button_show', FALSE);
+		add_option('facebook_like_button_show', TRUE);
 		add_option('facebook_like_layout', 'standart');
 		add_option('facebook_like_color', 'light');
 		add_option('facebook_like_faces', FALSE);
 		add_option('facebook_like_width', 450);
-		add_option('facebook_like_height', 30);
+		add_option('facebook_like_height', 70);
 		add_option('facebook_like_verb', 'like');
 
+		add_option('vkontakte_button_show', TRUE);
+		add_option('mailru_button_show', TRUE);
+		add_option('facebook_button_show', TRUE);
+		add_option('odnoklassniki_button_show', TRUE);
+		add_option('twitter_button_show', TRUE);
+		add_option('livejournal_button_show', TRUE);
+		add_option('google_button_show', TRUE);
 
-		add_option('buttons_show', 'facebook,googlebuzz,googleplus,livejournal,mailru,odnoklassniki,twitter,vkontakte,yandex');
-		add_option('buttons_sort', $this->social_name);
-
+		add_option('vkontakte', 1);
+		add_option('mailru', 2);
+		add_option('facebook', 3);
+		add_option('odnoklassniki', 4);
+		add_option('twitter', 5);
+		add_option('livejournal', 6);
+		add_option('googlebuzz', 7);
 
 		add_option('twitter_via','');
 		add_option('opt_parsing_images',TRUE);
@@ -216,12 +227,6 @@
 		register_setting( 'sb-settings-group', 'share_buttons_show_on_posts' );
 		register_setting( 'sb-settings-group', 'share_buttons_show_on_pages' );
 		register_setting( 'sb-settings-group', 'share_buttons_show_on_home' );
-		register_setting( 'sb-settings-group', 'share_buttons_show_on_archive' );
-		register_setting( 'sb-settings-group', 'share_buttons_show_on_cat' );
-		register_setting( 'sb-settings-group', 'share_buttons_show_on_tag' );
-
-		register_setting( 'sb-settings-group', 'margin_top' );
-		register_setting( 'sb-settings-group', 'margin_bottom' );
 
 		register_setting( 'sb-settings-group', 'share_buttons_exclude' );
 
@@ -246,7 +251,13 @@
 		register_setting( 'sb-settings-group', 'facebook_like_height');
 		register_setting( 'sb-settings-group', 'facebook_like_verb');
 
-		register_setting( 'sb-settings-group', 'buttons_show');
+		register_setting( 'sb-settings-group', 'vkontakte_button_show');
+		register_setting( 'sb-settings-group', 'mailru_button_show');
+		register_setting( 'sb-settings-group', 'facebook_button_show');
+		register_setting( 'sb-settings-group', 'odnoklassniki_button_show');
+		register_setting( 'sb-settings-group', 'twitter_button_show');
+		register_setting( 'sb-settings-group', 'livejournal_button_show');
+		register_setting( 'sb-settings-group', 'google_button_show');
 
 		register_setting( 'sb-settings-group', 'twitter_via');
 		register_setting( 'sb-settings-group', 'opt_parsing_images');
@@ -293,35 +304,34 @@
 		$share_buttons = '<div style="clear:both;"></div>';
 		$like_buttons = '<div style="clear:both;"></div>';
 		if(!empty($this->header_text)) {
-			$share_buttons .= '<div class="header_text"><h3>'.$this->header_text.'</h3></div>';
+			$share_buttons .= '<div><h3>'.$this->header_text.'</h3></div>';
 		}
 		if ($pos == 'right')
 		// right alignment
-			$share_buttons .= "<div name=\"#\" class=\"buttons_share\" style=\"float: $pos; margin-top:".$this->margin_top."px; margin-bottom:".$this->margin_bottom."px;\">\r\n$get_share_buttons\r\n</div><div style=\"clear:both;\"></div>";
+			$share_buttons .= "<div name=\"#\" style=\"float: $pos; margin: 0px 0px 0px 0px; \">\r\n$get_share_buttons\r\n</div><div style=\"clear:both;\"></div>";
 		else
 		// left alignment
-			$share_buttons .= "<div name=\"#\" class=\"buttons_share\" style=\"float: $pos; margin-top:".$this->margin_top."px; margin-bottom:".$this->margin_bottom."px;\">\r\n$get_share_buttons\r\n</div><div style=\"clear:both;\"></div>";
+			$share_buttons .= "<div name=\"#\" style=\"float: $pos; margin: 0px 0px 15px 0px;\">\r\n$get_share_buttons\r\n</div><div style=\"clear:both;\"></div>";
 
-		$like_buttons .= "<div name=\"#\" style=\"float: left;\">\r\n$get_like_buttons\r\n</div><div style=\"clear:both;\"></div>";
+		$like_buttons .= "<div name=\"#\" style=\"float: left; margin: 0px 0px 0px 0px;\">\r\n$get_like_buttons\r\n</div><div style=\"clear:both;\"></div>";
 
-		if (is_single() && $this->show_on_post || is_page() && $this->show_on_page || is_home() && $this->show_on_home || is_category() && $this->show_on_cat || is_archive() && $this->show_on_archive || is_tag() && $this->show_on_tag) {
-			if ($vpos == 'top') {
+		if (is_single() && $this->show_on_post || is_page() && $this->show_on_page || is_home() && $this->show_on_home) {
+
+			if ($vpos == 'top')
 			// place button before post
-				echo $share_buttons . $content . $like_buttons;
-			} else {
+				return $share_buttons . $content . $like_buttons;
+			else
 			// after post
-				echo $content . $share_buttons . $like_buttons;
+				return $content . $share_buttons . $like_buttons;
 			}
 			return $content;
 		}
-	}
 
 // Localization support
-	function load_domain() {
-		$mofile = dirname(__FILE__) . '/lang/' . $this->plugin_domain . '-' . get_locale() . '.mo';
-		load_textdomain($this->plugin_domain, $mofile);
-	}
-
+		function load_domain() {
+			$mofile = dirname(__FILE__) . '/lang/' . $this->plugin_domain . '-' . get_locale() . '.mo';
+			load_textdomain($this->plugin_domain, $mofile);
+		}
 	}
 	else :
 

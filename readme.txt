@@ -1,17 +1,17 @@
 === Social Share Buttons for WordPress ===
 Contributors: Loskutnikov Artem (artlosk)
-Donate link: http://sbuttons.ru/donate-ru/ and http://sbuttons.ru/donate-en/
-Tags: social, network, jquery, share buttons, social buttons, facebook, googlebuzz, livejournal, mailru, odnoklassniki, twitter, vkontakte, yandex,
+Donate link:  http://sbuttons.ru/donate-en/
+Tags: social, network, jquery, share buttons, social buttons, twitter, facebook, vkontakte, odnoklassniki, mail.ru, google, google-buzz, livejournal
 Requires at least: 2.8
-Tested up to: 3.2
-Stable tag: 2.6
+Tested up to: 3.0
+Stable tag: 2.5
 
-The Share buttons, it is plugin for social networks. The plugin supports 9 social networking.
+The Share buttons, it is plugin for social networks. The plugin supports 7 social networking.
 
 == Description ==
 
-The Share buttons, it is plugin for social networks. The plugin supports 9 social networking. 
-There are Vkontakte, Odnoklassniki.ru, Mail.ru, LiveJournal, Yandex russian social buttons and there are Facebook, Twitter, Google-Buzz, Google-Plus english social buttons. 
+The Share buttons, it is plugin for social networks. The plugin supports 7 social networking. 
+There are Vkontakte, Odnoklassniki.ru, Mail.ru, LiveJournal russian social buttons and there are Facebook, Twitter, Google-Buzz english social buttons. 
 Settings include show/hide buttons, sort buttons, position buttons and e.t.c.
 This plugin is written using AJAX and Jquery. The plugin supports 2 languages: English and Russian
 
@@ -33,42 +33,25 @@ This plugin is written using AJAX and Jquery. The plugin supports 2 languages: E
 NOTE:
 or upload via FTP manually
 
-== Screenshots ==
+== History URL ==
 
-1. Upload picture for site-logo
-2. Sort Buttons, Choose style, Enable/Disabled buttons
-3. Margins top and bottom
-4. Header text before social buttons
-5. Position Share Buttons
-6. Twitter via "@"
-7. Like button - Vkontakte
-8. Like button - Facebook
-9. Like button - Mailru
+Third post about plugin ver 2.0   : http://artlosk.com/2010/12/social-share-buttons-ver-2-0/
+
+Second post about plugin ver. 1.2 : http://artlosk.com/2010/11/social-share-buttons-ver-1-2/
+
+First post about plugin ver. 1.0  : http://artlosk.com/2010/10/social-share-buttons/
+
 == Changelog ==
-
-[2.6]
-
-- Add Yandex button
-- Add Google Plus button (test mode)
-- Optimize code and database (add options 'buttons_sort' and 'buttons_show' instead of twitter_show, facebook_show and e.t.c)
-- Delete Original and Original Count styles (I think they are not needed)
-- Add Mini style
-- Fix problem library mb_string
-- Fix buttons border
-- Change sort for social buttons
-- Fix display buttons in Page, Post, Home
-- Add display buttons in Category, in Tags, in Archive
-- Fix <nofollow> and <noindex>
-- Add Margins top and bottom for block social buttons
 
 [2.5]
 
-- Add Livejournal button
-- Add Google-Buzz button
-- Create Site for this plugin http://sbuttons.ru
-- Update russian language
-- Add text before social buttons
-- Change Sort
+Add Livejournal button
+Add Google-Buzz button
+Create Site for this plugin http://sbuttons.ru
+Update russian language
+Add text before social buttons
+Change Sort
+Fixed button Odnoklassniki
 and e.t.c (few changes)
 
 [2.2]
