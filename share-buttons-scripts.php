@@ -22,7 +22,7 @@ class ButtonsScripts {
 	}
 
 	function initKeyed() {
-		if(@array_key_exists(01, $this->buttons_sort)==false) {
+		if(@array_key_exists(0, $this->buttons_sort)==false) {
 			$this->btnsort = explode(',', $this->buttons_sort);
 		} else {
 			$this->btnsort = $this->buttons_sort;

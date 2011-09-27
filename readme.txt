@@ -19,6 +19,9 @@ This plugin is written using AJAX and Jquery. The plugin supports 2 languages: E
 -RUS (http://sbuttons.ru/tutorial-ru/installation-ru/)
 -ENG (http://sbuttons.ru/tutorial-en/installation-en/) 
 
+To disable the main output social share buttons and use only shortcode '[share-buttons]' in Post/Page, open share-buttons.php and comment line 103
+'add_filter('the_content', array(&$this, 'place_button'));' <- this comment
+
 == Languages ==
 
 * English - default
@@ -57,9 +60,9 @@ or upload via FTP manually
 - Fix buttons border
 - Change sort for social buttons
 - Fix display buttons in Page, Post, Home
-- Add display buttons in Category, in Tags, in Archive
 - Fix <nofollow> and <noindex>
 - Add Margins top and bottom for block social buttons
+- Add Shortcode in Post/Page '[share-button]' (but main block output enabled =( )
 
 [2.5]
 

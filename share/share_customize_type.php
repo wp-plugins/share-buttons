@@ -217,7 +217,7 @@
 	$btnsort = explode(',',$btnsort);
 
 	$show = get_option('buttons_show');
-	if(@array_key_exists(01, $show)==false) {
+	if(@array_key_exists(0, $show)==false) {
 		$show = explode(',',$show);
 	}
 

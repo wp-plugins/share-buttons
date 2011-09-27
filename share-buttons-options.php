@@ -300,7 +300,7 @@ jQuery(document).ready(function($){
 					<div class="body_enable">
 						<?php
 							$show=get_option('buttons_show');
-							if(@array_key_exists(01, $show)==false) {
+							if(@array_key_exists(0, $show)==false) {
 								$show = explode(',',$show);
 							}
 							$soc_name = array('Facebook', 'Google Buzz', 'Google Plus', 'LiveJournal', 'Mail.ru', 'Twitter', 'Одноклассники', 'Вконтакте','Yandex');
@@ -429,22 +429,6 @@ jQuery(document).ready(function($){
 								<?php _e('Home', $this->plugin_domain) ?>
 							</label>
 							<br />
-							<label for="share_buttons_show_on_archive">
-								<input name="share_buttons_show_on_archive" type="checkbox" id="share_buttons_show_on_archive" value="1" <?php checked(TRUE, $this->show_on_archive); ?> />
-								<?php _e('Archives', $this->plugin_domain) ?>
-							</label>
-							<br />
-							<label for="share_buttons_show_on_cat">
-								<input name="share_buttons_show_on_cat" type="checkbox" id="share_buttons_show_on_cat" value="1" <?php checked(TRUE, $this->show_on_cat); ?> />
-								<?php _e('Categories', $this->plugin_domain) ?>
-							</label>
-							<br />
-							<label for="share_buttons_show_on_tag">
-								<input name="share_buttons_show_on_tag" type="checkbox" id="share_buttons_show_on_tag" value="1" <?php checked(TRUE, $this->show_on_tag); ?> />
-								<?php _e('Tags', $this->plugin_domain) ?>
-							</label>
-							<br />
-
 						</td>
 					</tr>
 					<tr valign="top">

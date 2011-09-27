@@ -38,9 +38,6 @@
 		var $show_on_post;
 		var $show_on_page;
 		var $show_on_home;
-		var $show_on_cat;
-		var $show_on_archive;
-		var $show_on_tag;
 		var $margin_top;
 		var $margin_bottom;
 
@@ -113,9 +110,6 @@
 		$this->show_on_post = get_option('share_buttons_show_on_posts');
 		$this->show_on_page = get_option('share_buttons_show_on_pages');
 		$this->show_on_home = get_option('share_buttons_show_on_home');
-		$this->show_on_archive = get_option('share_buttons_show_on_archive');
-		$this->show_on_cat = get_option('share_buttons_show_on_cat');
-		$this->show_on_tag = get_option('share_buttons_show_on_tag');
 		$this->margin_top = get_option('margin_top');
 		$this->margin_bottom = get_option('margin_bottom');
 
@@ -163,9 +157,6 @@
 		add_option('share_buttons_show_on_posts', TRUE);
 		add_option('share_buttons_show_on_pages', TRUE);
 		add_option('share_buttons_show_on_home', TRUE);
-		add_option('share_buttons_show_on_archive', TRUE);
-		add_option('share_buttons_show_on_cat', TRUE);
-		add_option('share_buttons_show_on_tag', TRUE);
 
 		add_option('margin_top', '0');
 		add_option('margin_bottom', '5');
@@ -195,8 +186,8 @@
 		add_option('facebook_like_verb', 'like');
 
 
-		add_option('buttons_show', 'facebook,googlebuzz,googleplus,livejournal,mailru,odnoklassniki,twitter,vkontakte,yandex');
-		add_option('buttons_sort', $this->social_name);
+		add_option('buttons_sort', 'facebook,googlebuzz,googleplus,livejournal,mailru,odnoklassniki,twitter,vkontakte,yandex');
+		add_option('buttons_show', $this->social_name);
 
 
 		add_option('twitter_via','');
@@ -216,9 +207,6 @@
 		register_setting( 'sb-settings-group', 'share_buttons_show_on_posts' );
 		register_setting( 'sb-settings-group', 'share_buttons_show_on_pages' );
 		register_setting( 'sb-settings-group', 'share_buttons_show_on_home' );
-		register_setting( 'sb-settings-group', 'share_buttons_show_on_archive' );
-		register_setting( 'sb-settings-group', 'share_buttons_show_on_cat' );
-		register_setting( 'sb-settings-group', 'share_buttons_show_on_tag' );
 
 		register_setting( 'sb-settings-group', 'margin_top' );
 		register_setting( 'sb-settings-group', 'margin_bottom' );
@@ -290,11 +278,15 @@
 		$get_like_buttons = $this->the_like_button();
 		$pos = get_option('share_buttons_position');
 		$vpos = get_option('share_buttons_vposition');
+
 		$share_buttons = '<div style="clear:both;"></div>';
+
 		$like_buttons = '<div style="clear:both;"></div>';
+
 		if(!empty($this->header_text)) {
 			$share_buttons .= '<div class="header_text"><h3>'.$this->header_text.'</h3></div>';
 		}
+
 		if ($pos == 'right')
 		// right alignment
 			$share_buttons .= "<div name=\"#\" class=\"buttons_share\" style=\"float: $pos; margin-top:".$this->margin_top."px; margin-bottom:".$this->margin_bottom."px;\">\r\n$get_share_buttons\r\n</div><div style=\"clear:both;\"></div>";
@@ -304,16 +296,20 @@
 
 		$like_buttons .= "<div name=\"#\" style=\"float: left;\">\r\n$get_like_buttons\r\n</div><div style=\"clear:both;\"></div>";
 
-		if (is_single() && $this->show_on_post || is_page() && $this->show_on_page || is_home() && $this->show_on_home || is_category() && $this->show_on_cat || is_archive() && $this->show_on_archive || is_tag() && $this->show_on_tag) {
+		if (is_single() && $this->show_on_post || is_page() && $this->show_on_page || is_home() && $this->show_on_home) {
 			if ($vpos == 'top') {
 			// place button before post
-				echo $share_buttons . $content . $like_buttons;
+				return $share_buttons . $content . $like_buttons;
 			} else {
 			// after post
-				echo $content . $share_buttons . $like_buttons;
+				return $content . $share_buttons . $like_buttons;
 			}
-			return $content;
+
+
 		}
+
+		return $content;
+
 	}
 
 // Localization support
