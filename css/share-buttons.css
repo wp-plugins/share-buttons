@@ -1,0 +1,133 @@
+/*
+	Plugin Name: Social Share Buttons
+	Plugin URI: http://sbuttons.ru
+	Description: The plugin implements the API function socials networks that adds the link share buttons.
+	Donate link: http://sbuttons.ru/donate-ru/ and http://sbuttons.ru/donate-en/
+	Author: Loskutnikov Artem
+	Version: 2.6.1
+	Author URI: http://artlosk.com/
+	License: GPL2
+*/
+
+/*
+	Copyright 2010 Loskutnikov Artem (artlosk) (email: artlosk at gmail.com)
+
+	This program is free software; you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation; either version 2 of the License, or
+	(at your option) any later version.
+
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+*/
+
+#sortable-list		{ padding:0; width:200px; }
+#sortable-list li	{ color:#000; cursor:move; list-style:none; background:#f3f3f3; width:130px; border:1px solid #ddd; height:25px; padding-left:8px; padding-top:9px; font-weight:bold; color:#333; }
+
+#message-box		{ background:#fffea1; border:1px solid #fc0; padding:4px 8px; margin:0 0 14px 0; width:500px; }
+.original {display:none;}
+.original_count {display:none;}
+.new_year {display:none;}
+.classic {display:none;}
+.soft_rect {display:none;}
+.soft_round {display:none;}
+.glossy_rect {display:none;}
+.glossy_round {display:none;}
+
+.wrap {
+    width: 100%;
+    float: left;
+    margin-right: -160px;
+    background:#fff;
+}
+.fieldset_image {
+    margin-left:10px;
+    border:1px solid #eee;
+    width:700px;
+}
+
+.body_sort {
+    margin-left:20px;
+    width:150px;
+    padding:10px;
+}
+
+.body_style, .body_enable {
+    padding-top:10px;
+    padding-bottom:10px;
+    width:475px;
+
+}
+
+
+.fieldset_sort {
+    border:1px solid #eee;
+    width:200px;
+    height:508px;
+}
+
+.fieldset_style {
+    padding-left:15px;
+    border:1px solid #eee;
+    width:480px;
+    height:508px;
+}
+.fieldset_enable {
+    margin-left:10px;
+    border:1px solid #eee;
+    width:690px;
+    height:159px;
+    padding-left:15px;
+}
+
+
+.body_other {
+    margin-left:20px;
+    width:640px;
+    padding:10px;
+}
+
+
+.fieldset_position {
+    margin-left:10px;
+    border:1px solid #eee;
+    width:700px;
+}
+
+
+.fieldset_social {
+    margin-left:10px;    
+    border:1px solid #eee;
+    width:700px;
+}
+legend {
+    font-weight:bold;
+	font-size: 14px;
+	padding: 8px;
+	margin: 0px 0px 0px 10px;
+}
+.head_social {
+    margin-left:10px;
+    font-weight:bold;
+}
+.body_social {
+    margin-left:20px;
+    width:600px;
+    padding:10px;
+}
+.button_submit {
+	margin-left:20px;
+	margin-bottom:10px;
+}
+.note {
+	border:1px solid #e3e3e3;
+	padding:10px;
+
+	background-color:#f0f0f0; 
+}
+#wpcontent .body_other select {
+height:150px;
+}
