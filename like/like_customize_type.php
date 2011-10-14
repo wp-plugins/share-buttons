@@ -11,8 +11,6 @@
 		$verb_vk = get_option($this->pluginPrefix . 'vkontakte_like_verb');
 		$api_id_vk = get_option($this->pluginPrefix . 'vkontakte_like_api');
 
-		if($verb_vk=='like') { $verb_vk=0; } else { $verb_vk=1; }
-
 		$vkontakte_like .= "<div class=\"vkontakte_like\">\r\n";
 		$vkontakte_like .= "<div id=\"vk_like_".$post->ID."\" style=\"margin-bottom:5px;\"></div>\r\n";
 
